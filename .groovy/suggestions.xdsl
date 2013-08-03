@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<projectSuggestions>
+<declaringtype type="org.plis.DeployService">
+<method isActive="true" isStatic="false" name="isDeployed" type="java.lang.String">
+<parameters useNamedArguments="false"/>
+<doc/>
+</method>
+</declaringtype>
+</projectSuggestions>

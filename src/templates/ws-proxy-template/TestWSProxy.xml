@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" 
+xmlns="http://www.mulesoft.org/schema/mule/core" 
+xmlns:http="http://www.mulesoft.org/schema/mule/http" 
+xmlns:https="http://www.mulesoft.org/schema/mule/https" 
+xmlns:cxf="http://www.mulesoft.org/schema/mule/cxf" 
+xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" 
+xmlns:spring="http://www.springframework.org/schema/beans" 
+xmlns:core="http://www.mulesoft.org/schema/mule/core" 
+xmlns:context="http://www.springframework.org/schema/context"
+version="EE-3.4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/https http://www.mulesoft.org/schema/mule/https/current/mule-https.xsd
+http://www.mulesoft.org/schema/mule/cxf http://www.mulesoft.org/schema/mule/cxf/current/mule-cxf.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+  
+    <spring:beans>
+        <context:property-placeholder location="wsproxy.properties"/>
+    </spring:beans>
+    
+    <flow name="TestWSProxyFlow" doc:name="TestWSProxyFlow">
+        <http:inbound-endpoint exchange-pattern="request-response" address="${http-endpoint-proxy-frontend}" disableTransportTransformer="true" doc:name="HTTP"/>
+        <cxf:proxy-service namespace="${http-endpoint-proxy-namespace}" service="${http-endpoint-proxy-service}" payload="body" wsdlLocation="wsdl/${http-endpoint-proxy-wsdlName}" enableMuleSoapHeaders="false" doc:name="SOAP">
+            <cxf:ws-security>
+                <cxf:ws-config/>
+            </cxf:ws-security>
+        </cxf:proxy-service>
+        <flow-ref name="Client-Proxy-Side" doc:name="Flow Reference"/>
+    </flow>
+    <sub-flow name="Client-Proxy-Side" doc:name="Client-Proxy-Side">
+        <set-property propertyName="SOAPAction" value="#[message.inboundProperties.SoapAction]" doc:name="Property"/>
+        <cxf:proxy-client payload="body" doc:name="SOAP"/>
+        <http:outbound-endpoint exchange-pattern="request-response" method="POST" address="${http-endpoint-destination-address}" doc:name="HTTP"/>
+    </sub-flow>
+</mule>
