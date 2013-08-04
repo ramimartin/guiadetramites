@@ -91,6 +91,7 @@ log4j = {
 }
 
 // Added by the Spring Security Core plugin:
+/*
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'org.plis.SecUser'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'org.plis.SecUserSecRole'
 grails.plugins.springsecurity.authority.className = 'org.plis.SecRole'
@@ -110,4 +111,5 @@ grails.plugins.springsecurity.interceptUrlMap = [
 grails.plugins.springsecurity.password.algorithm='SHA-512'      //pw encryption algorithm
 grails.plugins.springsecurity.portMapper.httpPort = "8080"      //port map for http
 grails.plugins.springsecurity.portMapper.httpsPort = "8443"     //port map for https
+*/
 //grails.plugins.springsecurity.rejectIfNoRule = true             //force authentication if no rule exists
