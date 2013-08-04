@@ -1,7 +1,10 @@
 package org.guiatramites
 
+import org.bson.types.ObjectId;
+
 class Tramite {
 	
+	String id
 	String nombre
 	String organismo
 	String en_que_consiste

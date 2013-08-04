@@ -41,7 +41,7 @@
 
 <div class="container">
 
-        <g:form controller="controller" action="accion" class="span6 offset3">
+        <g:form controller="home" action="buscar" class="span6 offset3">
             <fieldset>
                 <legend>
                     Buscar tr&aacute;mite
