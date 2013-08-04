@@ -33,7 +33,11 @@
 
 
 <div class="container">
-    <div id="mapa" style="height:600px;"></div>
+    <div class="row">
+
+        <div id="mapa" style="height:300px;width: 80%;margin-left: 10%" ></div>
+
+    </div>
 </div>
 
 </body>
