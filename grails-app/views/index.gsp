@@ -11,8 +11,6 @@
     <script src="/guiatramites/static/js/bootstrap.js"/>
 
     <g:javascript src="argenmap/googlemaps.js" />
-    <g:javascript src="argenmap/argenmap.jquery.min.js" />
-    <g:javascript src="argenmap/mapa.js" />
     <script>
     $(document).ready(function(){
         $('.tramite-ctrl').typeahead({
@@ -44,7 +42,7 @@
                 <g:textField name="direccion"></g:textField>
             </div>
                 <div class="form-group">
-                <button type="submit" class="btn">Buscar!</button>
+                <button type="submit" class="btn btn-primary">Buscar!</button>
                     </div>
             </fieldset>
 
