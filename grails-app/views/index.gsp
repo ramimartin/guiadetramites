@@ -48,7 +48,7 @@
                 </legend>
             <div class="form-group">
                 <label for="tramite">Tr&aacute;mite</label>
-                <g:textField name="tramite" class="tramite-ctrl" autocomplete="off"></g:textField>
+                <g:textField name="tramite" class="tramite-ctrl" autocomplete="off" placeholder="Trámite a realizar"></g:textField>
             </div>
             <div class="form-group">
                 <label for="direccion">Direcci&oacute;n</label>

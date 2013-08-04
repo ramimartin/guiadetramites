@@ -23,9 +23,7 @@
 	                </a>
 	                <g:link class="brand" uri="/">Guía de Trámites </g:link>
 
-        <form class="navbar-search pull-right" action="">
-          <input type="text" class="search-query span2" placeholder="Buscar">
-        </form>
+
 	                    <ul class="nav pull-right">
 	                       
 	                    </ul>
