@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>Barral de Servicios</title>
+		<title>Guía de Trámites</title>
 		<style type="text/css" media="screen">
 			#status {
 				background-color: #eee;
@@ -99,42 +99,9 @@
 		<div class="container">
 			<div class="row">
 	            <header class="page-header">
-	                <h3>Barral de Servicios <small class="lead">Bienvenido</small></h3>
+	                <h3>Guía de trámites <small class="lead">Bienvenido</small></h3>
 	            </header>
 			</div>
-			<div class="row">
-		<div class="well"style="width:200px;float:left;margin:20px;" >
-	       <ul class="nav nav-list">
-	           <li class="nav-header">Comunidades</li>
-			   <li><g:link controller="comunidad" action="list">Listar</g:link></li>
-              <li><g:link controller="comunidad" action="create">Agregar</g:link></li>
-	       </ul>
-	   </div>			
-		<div class="well"style="width:200px;float:left;margin:20px;" >
-	       <ul class="nav nav-list">
-	           <li class="nav-header">Organismos</li>
-			  <li><g:link controller="organismo" action="list">Listar</g:link></li>
-              <li><g:link controller="organismo" action="create">Agregar</g:link></li>
-	       </ul>
-	   </div>
-	  </div>
-	  <div class="row">
-		<div class="well" style="width:200px;float:left;margin:20px;">
-	        <ul class="nav nav-list">
-	          <li class="nav-header">Servicios</li>
-			  <li><g:link controller="servicio" action="list">Listar</g:link></li>
-              <li><g:link controller="servicio" action="create">Agregar</g:link></li>
-	        </ul>
-	    </div>
-		<div class="well" style="width:200px;float:left;margin:20px;">
-	        <ul class="nav nav-list">
-	          <li class="nav-header">Usuarios</li>
-              <li><a href="#">Listado</a></li>
-              <li><a href="#">Agregar</a></li>
-              <li><a href="#">Editar mi información</a></li>
-	        </ul>
-	    </div>	    
-	</div>
 	</div>
 		</div>
 
