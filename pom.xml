@@ -6,9 +6,9 @@
     <groupId>org.plis</groupId>
     <artifactId>PLIS</artifactId>
     <packaging>grails-app</packaging>
-    <version>0.5</version>
-    <name>PLIS</name>
-    <description>PLIS</description>
+    <version>1</version>
+    <name>guiatramites</name>
+    <description>guiatramites</description>
 
     <properties>
         <grails.version>2.2.1</grails.version>
