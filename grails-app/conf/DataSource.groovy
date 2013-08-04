@@ -4,7 +4,7 @@ grails{
 		//port = 27107
 		username = ""
 		password = ""
-		databaseName = "hackfest"
+		databaseName = "guiatramites"
 	}
 }
 
