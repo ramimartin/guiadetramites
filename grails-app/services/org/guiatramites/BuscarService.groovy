@@ -8,11 +8,11 @@ class BuscarService {
 		return [organismos: organismos]
     }
 	
-	def buscar(params){
+	def buscar(def latitud, def longitud, def organismo_tipo){
 		
 		def math = new MathService();
-		Organismo org_cercano = math.findNearest(-34.213,-58.12415);
+		Organismo org_cercano = math.findNearest(latitud,longitud, organismo_tipo);
 		
-		return org_cercano;
+		return  org_cercano;
 	}
 }

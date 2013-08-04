@@ -17,6 +17,7 @@ class Tramite {
 	String donde_se_puede_realizar
 	String cuando_es_necesario_realizar_el_tramite
 	String observaciones
+	String organismo_tipo
 	
 	static belongsTo = Organismo
 	static hasMany = [organismos: Organismo]

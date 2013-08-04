@@ -8,9 +8,15 @@ class MathService {
         sqrt(pow((lat1-lat2),2) + pow((lon1-lon2),2))
     }
 
-    def findNearest(lat, lon) {
-        Organismo.findAll().min { organismo ->
-            distance(lat, organismo.latitude.toDouble(), lon, organismo.longitud.toDouble())
+    def findNearest(lat, lon, organismo_tipo) {
+        def results = Organismo.findAll{tipo == organismo_tipo}
+		println results
+		results.min { organismo ->
+            def dis = distance(lat, organismo.latitud?.toDouble(), lon, organismo.longitud?.toDouble())
+			println dis
+			println organismo
+			dis
+			
         }
     }
 }
