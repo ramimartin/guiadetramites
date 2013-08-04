@@ -84,15 +84,15 @@
 			}
 		</style>
 		<meta name="layout" content="main"/>
-	
+
 		<script src="/guiatramites/static/plugins/jquery-1.8.3/js/jquery/jquery-1.8.3.min.js" type="text/javascript" ></script>
 		<link href="/guiatramites/static/less/custom-bootstrap.less.css" type="text/css" media="screen, projection" rel="stylesheet" />
 
 		<g:javascript src="argenmap/googlemaps.js" />
 		<g:javascript src="argenmap/argenmap.jquery.min.js" />
 		<g:javascript src="argenmap/mapa.js" />
-		
-				
+
+
 	</head>
 	<body>
 
@@ -105,7 +105,7 @@
 		</div>
 
 		<div class="container">
-<div id="mapa" style="height:600px;"></div>     
+<div id="mapa" style="height:600px;"></div>
 		</div>
 
 	</body>
