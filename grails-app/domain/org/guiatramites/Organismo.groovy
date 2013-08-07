@@ -1,7 +1,5 @@
 package org.guiatramites
 
-import java.awt.TexturePaintContext.Int;
-
 class Organismo {
 
 	String id
