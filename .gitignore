@@ -3,3 +3,5 @@
 plugins/*
 .project
 .classpath
+.idea
+/out/*
