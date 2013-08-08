@@ -29,7 +29,7 @@ class GeoLocationService {
 
     private normalizar(String string){
         string.replace(" ","%20").replace("á","a").replace("é","e").replace("í","i").replace("ó", "o").replace("ú", "u")
-                .replace("ü","u").replace("ñ","n");
+                .replace("ü","u").replace("ñ","n").replace(', ',',');
     }
 /*
 
