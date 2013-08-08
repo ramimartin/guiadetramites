@@ -19,11 +19,11 @@
     $(document).ready(function(){
         //El div tiene id="mapa"
         $('#mapa').argenmap();
-        $('#mapa').centro(${organismo.latitud}, ${organismo.longitud})
+        $('#mapa').centro(${organismo?.latitud}, ${organismo?.longitud})
 
         var marcadores = [
 		{lat: ${lat}, lng: ${lon}, contenido:'${contenido}'},                  
-        {lat: ${organismo.latitud}, lng: ${organismo.longitud}, contenido:'${organismo.nombre}'}
+        {lat: ${organismo?.latitud}, lng: ${organismo?.longitud}, contenido:'${organismo?.nombre}'}
         ];
 
         $('#mapa').agregarMarcadores( marcadores );

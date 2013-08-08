@@ -9,6 +9,8 @@
     <script src="/guiatramites/static/plugins/jquery-1.8.3/js/jquery/jquery-1.8.3.min.js" type="text/javascript" ></script>
     <link href="/guiatramites/static/css/bootstrap.css" type="text/css" media="screen, projection" rel="stylesheet" />
     <script src="/guiatramites/static/js/bootstrap.js"></script>
+    <script src="/guiatramites/static/js/jquery.validate.min.js"></script>
+    <script src="/guiatramites/static/js/additional-methods.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
 
     
@@ -34,6 +36,48 @@
     })
     </script>
 
+<script type="text/javascript">
+    $(function (){
+        $("#form").validate({
+            rules: {
+                'tramite': {
+                    required: true,
+                    remote: {
+                        url: "${createLink(controller:'tramite', action:'validate')}",
+                        type: "post",
+                        data: {
+                            nombre: function() {
+                                return $("#tramite").val();
+                          }
+                        }
+                      }
+                },
+                'direccion': {
+                    required: true,
+                    remote: {
+                        url: "${createLink(controller:'direccion', action:'validate')}",
+                        type: "post",
+                        data: {
+                            direccion: function() {
+                                return $("#direccion").val();
+                          }
+                        }
+                      }
+                },
+            },
+            messages: {
+                'tramite': {
+                    required: "El campo tr&aacute;mite es obligatorio",
+                    remote: "El tr&aacute;mite ingresado no es v&aacute;lido"
+                },
+                'direccion': {
+                    required: "El campo direcci&oacute;n es obligatorio",
+                    remote: "La direcci&oacute;n ingresada no es v&aacute;lida"
+                }
+            }
+        });
+    });
+</script>
 
 </head>
 <body>
@@ -41,7 +85,7 @@
 
 <div class="container">
 
-        <g:form controller="home" action="buscar" class="span6 offset3">
+        <g:form controller="home" action="buscar" name="form" class="span6 offset3">
             <fieldset>
                 <legend>
                     Buscar tr&aacute;mite
