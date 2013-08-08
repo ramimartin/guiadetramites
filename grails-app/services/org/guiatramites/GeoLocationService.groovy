@@ -5,7 +5,7 @@ import groovy.json.JsonSlurper
 class GeoLocationService {
 
     private def static OPS_URL = 'http://nominatim.openstreetmap.org/search/${query}?format=json&' +
-            'countrycodes=AR&limit=1'
+            'countrycodes=AR&limit=1&accept-language=es&addressdetails=1'
 
     def buscarLugar(def lugar) {
         def coordenadas = new Coordenadas()
@@ -25,7 +25,7 @@ class GeoLocationService {
     }
 
     private normalizar(String string){
-        string.replace(" ","+").replace("á","a").replace("é","e").replace("í","i").replace("ó", "o").replace("ú", "u")
+        string.replace(" ","%20").replace("á","a").replace("é","e").replace("í","i").replace("ó", "o").replace("ú", "u")
                 .replace("ü","u").replace("ñ","n");
     }
 /*
