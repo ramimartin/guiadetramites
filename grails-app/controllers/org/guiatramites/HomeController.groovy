@@ -1,6 +1,5 @@
 package org.guiatramites
 
-import org.apache.ivy.core.resolve.RestartResolveProcess;
 import org.guiatramites.BuscarService
 import grails.converters.*
 
@@ -14,9 +13,6 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
-import net.sf.json.JSONSerializer;
 
 
 class HomeController{
@@ -32,6 +28,7 @@ class HomeController{
 	
 	def buscar() {
 		//params.direccion
+
 		//http://maps.googleapis.com/maps/api/geocode/json?address=Rivadavia+444%2C+clorinda+Formosa&sensor=true
 		
 		String address  =  params.direccion;
@@ -55,10 +52,8 @@ class HomeController{
 
 		BuscarService buscar = new BuscarService();
 		def tramite = Tramite.findByNombre(params.tramite);
-		
         
-		return [lat: lat, lon: lon, organismo: buscar.buscar(lat.toDouble(), lon.toDouble(), tramite.organismo_tipo), contenido: "Usted está aquí", 
-			tramite:tramite];
+		return [lat: lat, lon: lon, organismo: buscar.buscar(lat.toDouble(), lon.toDouble(), tramite.organismo_tipo), contenido: "Usted está aquí", tramite:tramite];
 			   
 	}
 	
