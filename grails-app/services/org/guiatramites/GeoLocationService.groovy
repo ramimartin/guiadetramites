@@ -1,8 +1,6 @@
 package org.guiatramites
 
-import net.sf.json.JSONArray
-import net.sf.json.JSONObject
-import net.sf.json.JSONSerializer
+import groovy.json.JsonSlurper
 
 class GeoLocationService {
 
@@ -11,21 +9,12 @@ class GeoLocationService {
 
     def buscarLugar(def lugar) {
         def coordenadas = new Coordenadas()
-        URL obj = new URL(OPS_URL.replace('${query}', normalizar(lugar)));
-        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+        def obj = new URL(OPS_URL.replace('${query}', normalizar(lugar)));
+        def con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("GET");
-        BufferedReader ind = new BufferedReader(
-                new InputStreamReader(con.getInputStream()));
-        String inputLine;
-        StringBuffer response = new StringBuffer();
 
-        while ((inputLine = ind.readLine()) != null) {
-            response.append(inputLine);
-        }
-        ind.close();
-
-        JSONArray json = JSONSerializer.toJSON(response.toString());
-        if (!json.empty){
+        def json = new JsonSlurper().parseText(con.inputStream.text);
+        if (json){
             coordenadas.latitud = json.first().lat
             coordenadas.longitud = json.first().lon
         }
