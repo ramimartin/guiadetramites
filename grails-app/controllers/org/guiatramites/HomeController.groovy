@@ -29,19 +29,17 @@ class HomeController{
 	def buscar() {
 		//params.direccion
 
+
 		//http://maps.googleapis.com/maps/api/geocode/json?address=Rivadavia+444%2C+clorinda+Formosa&sensor=true
-		
+
 		String address  =  params.direccion;
 		FieldValidationService validation = new FieldValidationService();
-        if ("false".equals(validation.validateTramiteField(params.tramite)) || "false".equals(validation.validateTramiteField(address))){
+        if ("false".equals(validation.validateTramiteField(params.tramite)) || "false".equals(validation.validateDireccionField(address))){
        		return "error";
        	}
-		
 
-		
 		String lat = validation.getLatitud();
         String lon = validation.getLongitud();
-        
 		//print result
 		String value="";
 		if (! "".equals(lat)){
@@ -50,9 +48,10 @@ class HomeController{
 			value = "--" + url + " -- "+ response.toString();
 		}
 
+
 		BuscarService buscar = new BuscarService();
 		def tramite = Tramite.findByNombre(params.tramite);
-        
+        log.info(tramite)
 		return [lat: lat, lon: lon, organismo: buscar.buscar(lat.toDouble(), lon.toDouble(), tramite.organismo_tipo), contenido: "Usted está aquí", tramite:tramite];
 			   
 	}

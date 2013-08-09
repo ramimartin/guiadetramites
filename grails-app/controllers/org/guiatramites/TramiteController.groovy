@@ -23,12 +23,4 @@ class TramiteController {
         render validation.validateTramiteField(nombre);
 	}
 
-    def autocompletar(){
-        def json = new GeoLocationService().autocomplete(params.lugar,'20')
-        def ret=[]
-        json.each {element->
-            ret.add(element['display_name'])
-        }
-    }
-
 }
