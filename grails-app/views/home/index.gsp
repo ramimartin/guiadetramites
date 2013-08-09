@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>Guía de Trámites</title>
+		<title>GeoTrámites - Guía de Trámites</title>
 		<style type="text/css" media="screen">
 			#status {
 				background-color: #eee;
@@ -85,8 +85,8 @@
 		</style>
 		<meta name="layout" content="main"/>
 
-		<script src="/guiatramites/static/plugins/jquery-1.8.3/js/jquery/jquery-1.8.3.min.js" type="text/javascript" ></script>
-		<link href="/guiatramites/static/less/custom-bootstrap.less.css" type="text/css" media="screen, projection" rel="stylesheet" />
+		<script src="${resource(dir: 'plugins/jquery-1.8.3/js/jquery', file: 'jquery-1.8.3.min.js')}" type="text/javascript" ></script>
+		<link href="${resource(dir: 'less', file: 'custom-bootstrap.less.css')}" type="text/css" media="screen, projection" rel="stylesheet" />
 
 		<g:javascript src="argenmap/googlemaps.js" />
 		<g:javascript src="argenmap/argenmap.jquery.min.js" />

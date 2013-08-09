@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Guía de Trámites</title>
+<title>GeoTrámites - Guía de Trámites</title>
 
 
 <meta name="layout" content="main" />
 
-<script
-	src="/guiatramites/static/plugins/jquery-1.8.3/js/jquery/jquery-1.8.3.min.js"
-	type="text/javascript"></script>
-<link href="/guiatramites/static/css/bootstrap.css" type="text/css"
+<script src="${resource(dir: 'plugins/jquery-1.8.3/js/jquery', file: 'jquery-1.8.3.min.js')}" type="text/javascript"></script>
+<link href="${resource(dir: 'css', file: 'bootstrap.css')}" type="text/css"
 	media="screen, projection" rel="stylesheet" />
 <g:javascript src="argenmap/googlemaps.js" />
 <g:javascript src="argenmap/argenmap.jquery.min.js" />
-<script src="/guiatramites/static/js/bootstrap.js"></script>
+<script src="${resource(dir: 'js', file: 'bootstrap.js')}"></script>
 
 <script type="text/javascript">
     $(document).ready(function(){
@@ -37,6 +35,8 @@
 
 
 	<div class="container">
+<img src="${resource(dir: 'img', file: 'guia_de_tramites.png')}" style="max-height:120px;" />
+
 		<div class="row">
 
 			<div id="mapa" style="height: 600px; width: 80%; margin: auto"></div>

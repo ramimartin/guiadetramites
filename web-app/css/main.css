@@ -600,3 +600,8 @@ a.skip {
 	left: -9999px;
 }
 */
+.error {
+	color: #D8000C;
+	font-size:1em;
+	font-style:italic;
+}
