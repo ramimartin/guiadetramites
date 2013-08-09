@@ -1,10 +1,10 @@
 grails{
 	mongo {
-		host = "localhost"
-		//port = 27107
-		username = ""
-		password = ""
-		databaseName = "guiatramites"
+		host = "dharma.mongohq.com"
+		port = 10095
+		username = "cloudbees"
+		password = "bdaa9223137299b80ba4396a50882d93"
+		databaseName = "Jl7KQsrzcOqRvez7sohlg"
 	}
 }
 
