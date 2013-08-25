@@ -29,11 +29,11 @@
 
         function use_geolocation(event) {
             if ($("#coordenadas").attr("checked")) {
-                $("#direccion").attr("readonly","readonly");
+                $("#direccion").attr("readonly", "readonly");
                 get_location();
             } else {
                 $("#direccion").removeAttr("readonly");
-                $("#direccion").attr("value","");
+                $("#direccion").attr("value", "");
             }
         }
 
@@ -65,6 +65,14 @@
 
             var input = /** @type {HTMLInputElement} */(document.getElementById('direccion'));
             var autocomplete = new google.maps.places.Autocomplete(input);
+            google.maps.event.addListener(autocomplete, 'place_changed', function () {
+                var place = autocomplete.getPlace();
+                if (place && place.geometry) {
+                    $("#latitude").attr("value", place.geometry.location.lat());
+                    $("#longitude").attr("value", place.geometry.location.lng());
+                }
+            });
+
         })
     </script>
 
@@ -141,9 +149,10 @@
 
             <div class="form-group">
                 <label for="direccion">Direcci&oacute;n</label>
-                <g:textField id="direccion" name="direccion"></g:textField>
+                <g:textField id="direccion" name="direccion" placeholder="Ingrese una dirección"></g:textField>
 
             </div>
+
             <div class="form-group">
                 <g:checkBox name="coordenadas" id="coordenadas"></g:checkBox>Utilizar ubicaci&oacute;n actual
             </div>

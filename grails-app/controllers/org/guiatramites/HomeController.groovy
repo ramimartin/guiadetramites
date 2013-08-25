@@ -33,13 +33,13 @@ class HomeController{
 		//http://maps.googleapis.com/maps/api/geocode/json?address=Rivadavia+444%2C+clorinda+Formosa&sensor=true
 
 		String address  =  params.direccion;
-		FieldValidationService validation = new FieldValidationService();
+		/*FieldValidationService validation = new FieldValidationService();
         if ("false".equals(validation.validateTramiteField(params.tramite)) || "false".equals(validation.validateDireccionField(address))){
        		return "error";
-       	}
+       	} */
 
-		String lat = validation.getLatitud();
-        String lon = validation.getLongitud();
+		String lat = params.latitude
+        String lon = params.longitude
 		//print result
 		String value="";
 		if (! "".equals(lat)){
