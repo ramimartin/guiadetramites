@@ -18,28 +18,29 @@
     <script language="javascript">
 
         function show_coords(position) {
-            console.log(position.coords.latitude);
-            console.log(position.coords.longitude);
+            $("#latitude").value = position.coords.latitude
+            $("#longitude").value = position.coords.longitude
 
         }
 
         function get_location() {
-            if (Modernizr.geolocation) {
-                navigator.geolocation.getCurrentPosition(show_coords);
+            navigator.geolocation.getCurrentPosition(show_coords);
+        }
+
+        function use_geolocation(event) {
+            if ($("#coordenadas").attr("checked")) {
+                $("#direccion").attr("readonly","readonly");
+                get_location();
             } else {
-                // no native support; maybe try a fallback?
+                $("#direccion").removeAttr("readonly");
+                $("#direccion").attr("value","");
             }
         }
 
-        function use_geolocation() {
-            if ($("#coordenadas").checked) {
-                $("#direccion").disable(true);
-                get_location();
-            }else{
-                $("#direccion").disable(false);
-                $("#direccion").value = "";
-            }
-        }
+        $(function () {
+            $("#coordenadas").on("click", use_geolocation);
+
+        })
 
 
 
@@ -141,8 +142,14 @@
             <div class="form-group">
                 <label for="direccion">Direcci&oacute;n</label>
                 <g:textField id="direccion" name="direccion"></g:textField>
-                <g:checkBox name="coordenadas" id="coordenadas">Utilizar ubicaci&oacute;n actual</g:checkBox>
+
             </div>
+            <div class="form-group">
+                <g:checkBox name="coordenadas" id="coordenadas"></g:checkBox>Utilizar ubicaci&oacute;n actual
+            </div>
+
+            <g:hiddenField name="latitude" id="latitude"/>
+            <g:hiddenField name="longitude" id="longitude"/>
 
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Buscar!</button>
