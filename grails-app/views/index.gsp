@@ -18,12 +18,15 @@
     <script language="javascript">
 
         function show_coords(position) {
-            $("#latitude").value = position.coords.latitude
-            $("#longitude").value = position.coords.longitude
+            console.log("ehaaa");
+            console.log(position);
+            $("#latitude").attr("value", position.coords.latitude);
+            $("#longitude").attr("value", position.coords.longitude);
 
         }
 
         function get_location() {
+            console.log("mostrando");
             navigator.geolocation.getCurrentPosition(show_coords);
         }
 
@@ -91,19 +94,19 @@
                                 }
                             }
                         }
-                    },
-                    'direccion': {
-                        required: true,
-                        remote: {
-                            url: "${createLink(controller:'direccion', action:'validate')}",
-                            type: "post",
-                            data: {
-                                direccion: function () {
-                                    return $("#direccion").val();
-                                }
-                            }
-                        }
-                    }
+                    }/*,
+                     'direccion': {
+                     required: true,
+                     remote: {
+                     url: "${createLink(controller:'direccion', action:'validate')}",
+                     type: "post",
+                     data: {
+                     direccion: function () {
+                     return $("#direccion").val();
+                     }
+                     }
+                     }
+                     }*/
                 },
                 messages: {
                     'tramite': {
@@ -157,8 +160,10 @@
                 <g:checkBox name="coordenadas" id="coordenadas"></g:checkBox>Utilizar ubicaci&oacute;n actual
             </div>
 
-            <g:hiddenField name="latitude" id="latitude"/>
-            <g:hiddenField name="longitude" id="longitude"/>
+            <div class="form-group">
+                <g:hiddenField name="latitude" id="latitude"/>
+                <g:hiddenField name="longitude" id="longitude"/>
+            </div>
 
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Buscar!</button>
